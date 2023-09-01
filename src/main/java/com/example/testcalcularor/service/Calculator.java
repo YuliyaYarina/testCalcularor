@@ -48,6 +48,4 @@ public class Calculator implements CalculatorService {
             throw new IllegalArgumentException("Cannot be divided by 0");
         } return num1 + " / " + num2 + " = " + (1.0 * num1 / num2);
     }
-
-
 }
