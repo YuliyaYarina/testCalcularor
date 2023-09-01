@@ -54,8 +54,6 @@ class CalculatorParameterizedTest {
     }
 
 
-
-
     static Stream<Arguments> provideValuesForDivideByZero() {
         return Stream.of(
                 Arguments.of(2, 0, IllegalArgumentException.class),
