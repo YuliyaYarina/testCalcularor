@@ -25,10 +25,28 @@ class CalculatorTest {
 
     @Test
     void minus() {
+        Integer x = 4;
+        Integer y = 2;
+        Integer z = null;
+        String exz = "Not all parameters are given";
+        String expected = "4 - 2 = 4";
+        String actual = out.minus(x,y);
+        String actual2 = out.minus(x,z);
+        Assertions.assertEquals(expected,actual);
+        Assertions.assertEquals(exz, actual2);
     }
 
     @Test
     void multiply() {
+        Integer x = 4;
+        Integer y = 2;
+        Integer z = null;
+        String exz = "Not all parameters are given";
+        String expected = "4 * 2 = 8";
+        String actual = out.multiply(x,y);
+        String actual2 = out.multiply(x,z);
+        Assertions.assertEquals(expected,actual);
+        Assertions.assertEquals(exz, actual2);
     }
 
     @Test

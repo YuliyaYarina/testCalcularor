@@ -33,6 +33,28 @@ class CalculatorParameterizedTest {
         );
     }
 
+    static Stream<Arguments> valuesForMultiply () {
+        return Stream.of(
+                Arguments.of(5, 5, "5 * 5 = 25"),
+                Arguments.of(-3, 7, "-3 * 7 = -21"),
+                Arguments.of(0, 5, "0 * 5 = 0"),
+                Arguments.of(-3, 3, "-3 * 3 = -9"),
+                Arguments.of(-5, -5, "-5 * -5 = 25")
+        );
+    }
+
+    static Stream<Arguments> valuesForDivide () {
+        return Stream.of(
+                Arguments.of(5, 5, "5 / 5 = 1.0"),
+                Arguments.of(-3, 7, "-3 / 7 = -0.42857142857142855"),
+                Arguments.of(0, 5, "0 / 5 = 0.0"),
+                Arguments.of(-3, 3, "-3 / 3 = -1.0"),
+                Arguments.of(-5, -5, "-5 / -5 = 1.0")
+        );
+    }
+
+
+
 
     static Stream<Arguments> provideValuesForDivideByZero() {
         return Stream.of(
@@ -45,7 +67,6 @@ class CalculatorParameterizedTest {
     void plus(Integer x, Integer y, String expected) {
         String actual = out.plus(x,y);
         Assertions.assertEquals(expected,actual);
-
     }
 
     @ParameterizedTest
@@ -56,8 +77,18 @@ class CalculatorParameterizedTest {
 
     }
 
-    @Test
-    void multiply() {
+    @ParameterizedTest
+    @MethodSource("valuesForMultiply")
+    void multiply(Integer x, Integer y, String expected) {
+        String actual = out.multiply(x,y);
+        Assertions.assertEquals(expected,actual);
+    }
+
+    @ParameterizedTest
+    @MethodSource("valuesForDivide")
+    void divide(Integer x, Integer y, String expected) {
+        String actual = out.divide(x,y);
+        Assertions.assertEquals(expected,actual);
     }
 
     @ParameterizedTest
