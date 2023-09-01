@@ -9,6 +9,7 @@ class CalculatorTest {
 
     private final Calculator out = new Calculator();
 
+
     @Test
     void plus() {
         Integer x = 4;
